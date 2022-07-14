@@ -1,0 +1,46 @@
+name: Deploy GitHub Pages
+
+# 触发条件：在 push 到 master 分支后
+on:
+  push:
+    branches:
+      - master
+
+# 任务
+jobs:
+  build-and-deploy:
+    # 服务器环境：最新版 Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      # 拉取代码
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      # 1、生成静态文件
+      - name: Build
+        run: npm install && npm run docs:build
+
+      # 2、部署到 GitHub Pages
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          REPOSITORY_NAME: mabeiping/mabeiping.github.io
+          BRANCH: master
+          FOLDER: dist
+          #注意这里的 public 是仓库根目录下的 public，也就是 npm run build 生成静态资源的路径，比如有的人是 `docs/.vuepress/dist`
+#      # 5、部署到 somenzz.cn 服务器
+#      - name: rsync deployments
+#        uses: burnett01/rsync-deployments@4.1
+#        with:
+#          # 这里是 rsync 的参数 switches: -avzh --delete --exclude="" --include="" --filter=""
+#          switches: -avzh
+#          path: dist/
+#          remote_path: /www/wwwroot/
+#          remote_host: mabeiping.com
+#          remote_port: 22
+#          remote_user: ubuntu
+#          remote_key: ${{ secrets.MY_UBUNTU_RSA_PRIVATE_KEY }}
+#          #这个是自购服务器的私钥，一般情况下云服务器都会提供一个私钥文件，推荐你使用私钥登录服务器，和第二个参数的原理是一致的，如果服务器没有给你这个私钥，请自行生成一个可用于登录的私钥。

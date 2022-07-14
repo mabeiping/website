@@ -1,0 +1,11 @@
+.theme-hope-content {
+  > blockquote {
+    > p {
+      background-color:#666;
+    }
+
+    > p:hover {
+      background-color: transparent;
+    }
+  }
+}
