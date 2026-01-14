@@ -31,16 +31,11 @@ jobs:
       run: npm install --legacy-peer-deps
 
     - name: Build project
-      run: npm run generate 
+      run: npm run generate
 
-    - name: Deploy to www branch
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git fetch origin www
-        git checkout www || git checkout --orphan www
-        git rm -rf .
-        cp -r .output/* .
-        git add .
-        git commit -m "Deploy to www branch - $(date)"
-        git push origin www --force
+    - name: Deploy to Cloudflare Pages
+      uses: cloudflare/wrangler-action@v3
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        command: pages deploy .output/public --project-name=website
