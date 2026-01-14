@@ -1,0 +1,1 @@
+import{_ as c,c as e,o as t}from"./Cr7zjweG.js";const o={},a={class:"contact-page"};function s(n,_){return t(),e("div",a," 联系页面 ")}const d=c(o,[["render",s],["__scopeId","data-v-6e52d832"]]);export{d as default};

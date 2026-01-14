@@ -1,0 +1,226 @@
+import { ref, computed, watch, mergeProps, useSSRContext } from 'vue';
+import { ssrRenderAttrs, ssrRenderList, ssrRenderClass, ssrInterpolate, ssrIncludeBooleanAttr, ssrLooseContain, ssrLooseEqual, ssrRenderAttr, ssrRenderComponent } from 'vue/server-renderer';
+import { P as ProfileAside } from './ProfileAside-C3eMv-oi.mjs';
+import { _ as _export_sfc } from './server.mjs';
+import '../nitro/nitro.mjs';
+import 'node:http';
+import 'node:https';
+import 'node:events';
+import 'node:buffer';
+import 'node:fs';
+import 'node:path';
+import 'node:crypto';
+import 'node:url';
+import '../routes/renderer.mjs';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'devalue';
+import 'unhead/utils';
+import 'vue-router';
+
+const _sfc_main = {
+  __name: "generate",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const selectedType = ref("");
+    const testText = ref("");
+    const testMatches = ref([]);
+    const patternTypes = [
+      { id: "phone", name: "电话号码" },
+      { id: "email", name: "电子邮箱" },
+      { id: "url", name: "网址URL" },
+      { id: "date", name: "日期格式" },
+      { id: "time", name: "时间格式" },
+      { id: "ip", name: "IP地址" },
+      { id: "password", name: "密码强度" },
+      { id: "idcard", name: "身份证号" },
+      { id: "number", name: "数字" }
+    ];
+    const phoneOptions = ref({
+      includeCountryCode: false,
+      includeAreaCode: false
+    });
+    const emailOptions = ref({
+      allowPlusTag: false,
+      allowIpDomain: false
+    });
+    const dateOptions = ref({
+      format: "YYYY-MM-DD"
+    });
+    const passwordOptions = ref({
+      minLength: 8,
+      requireUppercase: true,
+      requireLowercase: true,
+      requireNumbers: true,
+      requireSpecialChars: false
+    });
+    const generatedRegex = computed(() => {
+      if (!selectedType.value) return "";
+      switch (selectedType.value) {
+        case "phone":
+          if (phoneOptions.value.includeCountryCode && phoneOptions.value.includeAreaCode) {
+            return "\\+?\\d{1,4}[-.\\s]?\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}";
+          } else if (phoneOptions.value.includeAreaCode) {
+            return "\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}";
+          } else if (phoneOptions.value.includeCountryCode) {
+            return "\\+?\\d{1,4}[-.\\s]?\\d{3}[-.\\s]?\\d{4}";
+          } else {
+            return "\\d{11}";
+          }
+        case "email":
+          if (emailOptions.value.allowPlusTag && emailOptions.value.allowIpDomain) {
+            return "[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9.-]+|\\[\\d.]+\\])\\.[a-zA-Z]{2,}";
+          } else if (emailOptions.value.allowPlusTag) {
+            return "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
+          } else if (emailOptions.value.allowIpDomain) {
+            return "[a-zA-Z0-9._%-]+@(?:[a-zA-Z0-9.-]+|\\[\\d.]+\\])\\.[a-zA-Z]{2,}";
+          } else {
+            return "[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
+          }
+        case "url":
+          return "https?:\\/\\/[\\w\\-_]+(\\.[\\w\\-_]+)+([\\w\\-\\.,@?^=%&:/~\\+#]*[\\w\\-\\@?^=%&/~\\+#])?";
+        case "date":
+          switch (dateOptions.value.format) {
+            case "YYYY-MM-DD":
+              return "\\d{4}-\\d{2}-\\d{2}";
+            case "DD/MM/YYYY":
+              return "\\d{2}/\\d{2}/\\d{4}";
+            case "MM/DD/YYYY":
+              return "\\d{2}/\\d{2}/\\d{4}";
+            case "YYYY.MM.DD":
+              return "\\d{4}\\.\\d{2}\\.\\d{2}";
+            default:
+              return "\\d{4}-\\d{2}-\\d{2}";
+          }
+        case "time":
+          return "([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?";
+        case "ip":
+          return "\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b";
+        case "password":
+          let passwordPattern = "^";
+          if (passwordOptions.value.requireUppercase) {
+            passwordPattern += "(?=.*[A-Z])";
+          }
+          if (passwordOptions.value.requireLowercase) {
+            passwordPattern += "(?=.*[a-z])";
+          }
+          if (passwordOptions.value.requireNumbers) {
+            passwordPattern += "(?=.*\\d)";
+          }
+          if (passwordOptions.value.requireSpecialChars) {
+            passwordPattern += "(?=.*[!@#$%^&*()_+\\[\\]{}|;:,.<>?])";
+          }
+          passwordPattern += ".{" + passwordOptions.value.minLength + ",}$";
+          return passwordPattern;
+        case "idcard":
+          return "[1-9]\\d{5}(?:18|19|20)\\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\\d|3[01])\\d{3}[\\dXx]";
+        case "number":
+          return "-?\\d+(\\.\\d+)?";
+        default:
+          return "";
+      }
+    });
+    const generatedRegexDescription = computed(() => {
+      if (!selectedType.value) return "";
+      switch (selectedType.value) {
+        case "phone":
+          return "匹配电话号码格式";
+        case "email":
+          return "匹配电子邮箱地址";
+        case "url":
+          return "匹配HTTP/HTTPS网址";
+        case "date":
+          return `匹配${dateOptions.value.format}格式的日期`;
+        case "time":
+          return "匹配HH:MM或HH:MM:SS格式的时间";
+        case "ip":
+          return "匹配IPv4地址";
+        case "password":
+          return "匹配符合指定强度要求的密码";
+        case "idcard":
+          return "匹配18位身份证号码";
+        case "number":
+          return "匹配整数或小数";
+        default:
+          return "";
+      }
+    });
+    watch([generatedRegex, testText], () => {
+      if (!generatedRegex.value || !testText.value) {
+        testMatches.value = [];
+        return;
+      }
+      try {
+        const regex = new RegExp(generatedRegex.value, "g");
+        const matches = [...testText.value.matchAll(regex)];
+        testMatches.value = matches;
+      } catch (error) {
+        testMatches.value = [];
+      }
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "page-container" }, _attrs))} data-v-dbb4e883><div class="regex-page" data-v-dbb4e883><h1 class="page-title" data-v-dbb4e883>正则表达式生成工具</h1><div class="tool-description" data-v-dbb4e883><p data-v-dbb4e883>通过选择常见模式自动生成正则表达式，无需手动编写复杂的正则语法。</p></div><div class="generator-section" data-v-dbb4e883><div class="input-row" data-v-dbb4e883><div class="input-group full-width" data-v-dbb4e883><label data-v-dbb4e883>选择要生成的正则表达式类型</label><div class="pattern-types" data-v-dbb4e883><!--[-->`);
+      ssrRenderList(patternTypes, (type) => {
+        _push(`<div class="${ssrRenderClass([{ active: selectedType.value === type.id }, "pattern-type-item"])}" data-v-dbb4e883>${ssrInterpolate(type.name)}</div>`);
+      });
+      _push(`<!--]--></div></div></div>`);
+      if (selectedType.value) {
+        _push(`<div class="options-section" data-v-dbb4e883><h2 data-v-dbb4e883>配置选项</h2>`);
+        if (selectedType.value === "phone") {
+          _push(`<div class="option-group" data-v-dbb4e883><h3 data-v-dbb4e883>电话号码</h3><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883><input type="checkbox"${ssrIncludeBooleanAttr(Array.isArray(phoneOptions.value.includeCountryCode) ? ssrLooseContain(phoneOptions.value.includeCountryCode, null) : phoneOptions.value.includeCountryCode) ? " checked" : ""} data-v-dbb4e883> 包含国家代码</label></div><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883><input type="checkbox"${ssrIncludeBooleanAttr(Array.isArray(phoneOptions.value.includeAreaCode) ? ssrLooseContain(phoneOptions.value.includeAreaCode, null) : phoneOptions.value.includeAreaCode) ? " checked" : ""} data-v-dbb4e883> 包含区号</label></div></div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        if (selectedType.value === "email") {
+          _push(`<div class="option-group" data-v-dbb4e883><h3 data-v-dbb4e883>电子邮箱</h3><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883><input type="checkbox"${ssrIncludeBooleanAttr(Array.isArray(emailOptions.value.allowPlusTag) ? ssrLooseContain(emailOptions.value.allowPlusTag, null) : emailOptions.value.allowPlusTag) ? " checked" : ""} data-v-dbb4e883> 允许 + 标签（如 user+tag@example.com）</label></div><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883><input type="checkbox"${ssrIncludeBooleanAttr(Array.isArray(emailOptions.value.allowIpDomain) ? ssrLooseContain(emailOptions.value.allowIpDomain, null) : emailOptions.value.allowIpDomain) ? " checked" : ""} data-v-dbb4e883> 允许 IP 地址域名</label></div></div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        if (selectedType.value === "date") {
+          _push(`<div class="option-group" data-v-dbb4e883><h3 data-v-dbb4e883>日期格式</h3><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883>格式：</label><select data-v-dbb4e883><option value="YYYY-MM-DD" data-v-dbb4e883${ssrIncludeBooleanAttr(Array.isArray(dateOptions.value.format) ? ssrLooseContain(dateOptions.value.format, "YYYY-MM-DD") : ssrLooseEqual(dateOptions.value.format, "YYYY-MM-DD")) ? " selected" : ""}>YYYY-MM-DD</option><option value="DD/MM/YYYY" data-v-dbb4e883${ssrIncludeBooleanAttr(Array.isArray(dateOptions.value.format) ? ssrLooseContain(dateOptions.value.format, "DD/MM/YYYY") : ssrLooseEqual(dateOptions.value.format, "DD/MM/YYYY")) ? " selected" : ""}>DD/MM/YYYY</option><option value="MM/DD/YYYY" data-v-dbb4e883${ssrIncludeBooleanAttr(Array.isArray(dateOptions.value.format) ? ssrLooseContain(dateOptions.value.format, "MM/DD/YYYY") : ssrLooseEqual(dateOptions.value.format, "MM/DD/YYYY")) ? " selected" : ""}>MM/DD/YYYY</option><option value="YYYY.MM.DD" data-v-dbb4e883${ssrIncludeBooleanAttr(Array.isArray(dateOptions.value.format) ? ssrLooseContain(dateOptions.value.format, "YYYY.MM.DD") : ssrLooseEqual(dateOptions.value.format, "YYYY.MM.DD")) ? " selected" : ""}>YYYY.MM.DD</option></select></div></div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        if (selectedType.value === "password") {
+          _push(`<div class="option-group" data-v-dbb4e883><h3 data-v-dbb4e883>密码强度</h3><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883>最小长度：</label><input type="number"${ssrRenderAttr("value", passwordOptions.value.minLength)} min="1" max="50" data-v-dbb4e883></div><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883><input type="checkbox"${ssrIncludeBooleanAttr(Array.isArray(passwordOptions.value.requireUppercase) ? ssrLooseContain(passwordOptions.value.requireUppercase, null) : passwordOptions.value.requireUppercase) ? " checked" : ""} data-v-dbb4e883> 包含大写字母</label></div><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883><input type="checkbox"${ssrIncludeBooleanAttr(Array.isArray(passwordOptions.value.requireLowercase) ? ssrLooseContain(passwordOptions.value.requireLowercase, null) : passwordOptions.value.requireLowercase) ? " checked" : ""} data-v-dbb4e883> 包含小写字母</label></div><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883><input type="checkbox"${ssrIncludeBooleanAttr(Array.isArray(passwordOptions.value.requireNumbers) ? ssrLooseContain(passwordOptions.value.requireNumbers, null) : passwordOptions.value.requireNumbers) ? " checked" : ""} data-v-dbb4e883> 包含数字</label></div><div class="option-item" data-v-dbb4e883><label data-v-dbb4e883><input type="checkbox"${ssrIncludeBooleanAttr(Array.isArray(passwordOptions.value.requireSpecialChars) ? ssrLooseContain(passwordOptions.value.requireSpecialChars, null) : passwordOptions.value.requireSpecialChars) ? " checked" : ""} data-v-dbb4e883> 包含特殊字符</label></div></div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div>`);
+      if (generatedRegex.value) {
+        _push(`<div class="results-section" data-v-dbb4e883><div class="results-header" data-v-dbb4e883><h2 data-v-dbb4e883>生成的正则表达式</h2><button class="btn btn-primary" data-v-dbb4e883> 复制正则表达式 </button></div><div class="generated-regex" data-v-dbb4e883><code data-v-dbb4e883>${ssrInterpolate(generatedRegex.value)}</code></div><div class="regex-info" data-v-dbb4e883><h3 data-v-dbb4e883>说明</h3><p data-v-dbb4e883>${ssrInterpolate(generatedRegexDescription.value)}</p></div><div class="test-section" data-v-dbb4e883><h3 data-v-dbb4e883>测试</h3><textarea placeholder="输入测试文本..." class="test-text" rows="3" data-v-dbb4e883>${ssrInterpolate(testText.value)}</textarea>`);
+        if (testText.value) {
+          _push(`<div class="test-result" data-v-dbb4e883>`);
+          if (testMatches.value.length > 0) {
+            _push(`<div class="test-match-success" data-v-dbb4e883> 匹配成功！找到 ${ssrInterpolate(testMatches.value.length)} 个匹配项。 </div>`);
+          } else {
+            _push(`<div class="test-match-fail" data-v-dbb4e883> 没有找到匹配项。 </div>`);
+          }
+          _push(`</div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</div></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div>`);
+      _push(ssrRenderComponent(ProfileAside, null, null, _parent));
+      _push(`</div>`);
+    };
+  }
+};
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/regex/generate.vue");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+const generate = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-dbb4e883"]]);
+
+export { generate as default };
+//# sourceMappingURL=generate-B7-Um9CQ.mjs.map

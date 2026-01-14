@@ -1,0 +1,1 @@
+import{_ as e,c,o}from"./Cr7zjweG.js";const t={},a={class:"about-page"};function s(_,n){return o(),c("div",a," 关于页面 ")}const d=e(t,[["render",s],["__scopeId","data-v-8b19a143"]]);export{d as default};
