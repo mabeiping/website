@@ -60,55 +60,60 @@ const siteConfig = {
   // 工具分类配置
   toolCategories: [
     {
-      id: 'regex',
-      name: '正则表达式工具',
-      icon: '📋',
+      id: 'office',
+      name: '职场办公软件',
+      icon: '💼',
       tools: [
-        { id: 'regex-extract', name: '正则表达式提取', path: '/regex/extract', icon: '📋', desc: '提取匹配的文本内容' },
-        { id: 'regex-test', name: '正则表达式测试', path: '/regex/test', icon: '✓', desc: '测试正则表达式匹配' },
-        { id: 'regex-generate', name: '正则表达式生成', path: '/regex/generate', icon: '✨', desc: '生成常用正则表达式' },
-        { id: 'regex-replace', name: '正则表达式替换', path: '/regex/replace', icon: '🔄', desc: '替换匹配的文本内容' }
+        { id: 'calculator', name: '在线计算器', path: '/office/calculator', icon: '🧮', desc: '提供基础运算和科学计算功能' },
+        { id: 'unit-converter', name: '单位转换器', path: '/office/unit-converter', icon: '🔄', desc: '支持多种单位的转换，包括长度、重量、温度等' },
+        { id: 'text-comparison', name: '文本比较工具', path: '/office/text-comparison', icon: '📄', desc: '对比两个文本的差异，支持高亮显示不同之处' },
+        { id: 'word-counter', name: '字数统计工具', path: '/office/word-counter', icon: '🔢', desc: '统计文本的字数、字符数、段落数等信息' },
+        { id: 'date-calculator', name: '日期计算器', path: '/office/date-calculator', icon: '📅', desc: '计算两个日期之间的天数差，或添加/减去指定天数' },
+        { id: 'currency-converter', name: '汇率转换器', path: '/office/currency-converter', icon: '💱', desc: '实时汇率转换，支持全球主要货币' },
+        { id: 'password-generator', name: '密码生成器', path: '/office/password-generator', icon: '🔐', desc: '生成高强度密码，可自定义密码长度和字符类型' },
+        { id: 'qrcode-generator', name: '二维码生成器', path: '/office/qrcode-generator', icon: '📱', desc: '将文本、链接等内容生成二维码图片' },
+        { id: 'pdf-converter', name: 'PDF转换工具', path: '/office/pdf-converter', icon: '📑', desc: '支持PDF与Word、Excel、图片等格式的相互转换' },
+        { id: 'mind-map', name: '思维导图工具', path: '/office/mind-map', icon: '🌳', desc: '在线创建和编辑思维导图，支持导出多种格式' },
+        { id: 'pomodoro-timer', name: '番茄工作法计时器', path: '/office/pomodoro-timer', icon: '⏰', desc: '基于番茄工作法的计时器，提高工作效率' },
+        { id: 'meeting-notes', name: '会议记录工具', path: '/office/meeting-notes', icon: '📋', desc: '在线记录会议内容，支持实时编辑和分享' }
       ]
     },
     {
-      id: 'text',
-      name: '文本处理工具',
-      icon: '📝',
+      id: 'frontend',
+      name: '前端开发工具',
+      icon: '💻',
       tools: [
-        { id: 'text-extract', name: '文本提取', path: '/text/extract', icon: '📌', desc: '从文本中提取指定内容' },
-        { id: 'text-replace', name: '文本替换', path: '/text/replace', icon: '🔁', desc: '替换文本中的特定内容' },
-        { id: 'text-format', name: '文本格式化', path: '/text/format', icon: '🎨', desc: '美化文本格式' },
-        { id: 'text-split', name: '文本分割与合并', path: '/text/split', icon: '🔗', desc: '分割或合并文本' }
+        { id: 'css-beautifier', name: 'CSS 美化工具', path: '/frontend/css-beautifier', icon: '🎨', desc: '美化和格式化CSS代码' },
+        { id: 'js-minifier', name: 'JavaScript 压缩工具', path: '/frontend/js-minifier', icon: '🗜️', desc: '压缩和优化JavaScript代码' },
+        { id: 'html-validator', name: 'HTML 验证工具', path: '/frontend/html-validator', icon: '🔍', desc: '验证HTML代码的语法正确性' },
+        { id: 'color-picker', name: '颜色选择器', path: '/frontend/color-picker', icon: '🎨', desc: '选择颜色并获取对应的HEX、RGB、HSL值' },
+        { id: 'regex-tester', name: '正则表达式测试工具', path: '/frontend/regex-tester', icon: '🔧', desc: '测试和验证正则表达式的匹配效果' },
+        { id: 'json-formatter', name: 'JSON 格式化工具', path: '/frontend/json-formatter', icon: '📋', desc: '美化、压缩和验证JSON数据' },
+        { id: 'base64-encoder', name: 'Base64 编码器/解码器', path: '/frontend/base64-encoder', icon: '🔄', desc: '将文本与Base64格式相互转换' },
+        { id: 'url-encoder', name: 'URL 编码器/解码器', path: '/frontend/url-encoder', icon: '🔗', desc: '将URL与编码格式相互转换' },
+        { id: 'icon-generator', name: '图标生成工具', path: '/frontend/icon-generator', icon: '🖼️', desc: '生成不同尺寸的网站图标，支持多种格式' },
+        { id: 'responsive-tester', name: '响应式设计测试工具', path: '/frontend/responsive-tester', icon: '📱', desc: '测试网站在不同设备尺寸下的显示效果' },
+        { id: 'code-comparison', name: '代码对比工具', path: '/frontend/code-comparison', icon: '🔄', desc: '对比两段代码的差异，支持多种编程语言' },
+        { id: 'performance-analyzer', name: '性能分析工具', path: '/frontend/performance-analyzer', icon: '⚡', desc: '分析网站的加载性能，提供优化建议' }
       ]
     },
     {
-      id: 'encode',
-      name: '编码转换工具',
-      icon: '🔢',
+      id: 'games',
+      name: '碎片时间小游戏',
+      icon: '🎮',
       tools: [
-        { id: 'base64', name: 'Base64 编码/解码', path: '/encode/base64', icon: '🔢', desc: 'Base64编解码转换' },
-        { id: 'url', name: 'URL 编码/解码', path: '/encode/url', icon: '🌐', desc: 'URL编解码转换' },
-        { id: 'html', name: 'HTML 实体转换', path: '/encode/html', icon: '<>', desc: 'HTML实体转换' }
-      ]
-    },
-    {
-      id: 'json',
-      name: 'JSON 工具',
-      icon: '📄',
-      tools: [
-        { id: 'json-format', name: 'JSON 格式化', path: '/json/format', icon: '🎯', desc: '美化JSON格式' },
-        { id: 'json-compress', name: 'JSON 压缩', path: '/json/compress', icon: '🗜️', desc: '压缩JSON内容' },
-        { id: 'json-convert', name: 'JSON 转其他格式', path: '/json/convert', icon: '🔄', desc: 'JSON转换为其他格式' }
-      ]
-    },
-    {
-      id: 'time',
-      name: '时间日期工具',
-      icon: '⏰',
-      tools: [
-        { id: 'timestamp', name: '时间戳转换', path: '/time/timestamp', icon: '🔢', desc: '时间戳转换为日期' },
-        { id: 'date-calc', name: '日期计算', path: '/time/calc', icon: '📅', desc: '日期加减计算' },
-        { id: 'timezone', name: '时区转换', path: '/time/timezone', icon: '🌍', desc: '不同时区转换' }
+        { id: 'snake', name: '贪吃蛇游戏', path: '/games/snake', icon: '🐍', desc: '经典的贪吃蛇游戏，锻炼反应能力' },
+        { id: 'tic-tac-toe', name: '井字棋游戏', path: '/games/tic-tac-toe', icon: '❌⭕', desc: '经典的井字棋游戏，支持双人对战' },
+        { id: '2048', name: '2048 游戏', path: '/games/2048', icon: '🔢', desc: '经典的数字合并游戏，挑战你的策略思维' },
+        { id: 'tetris', name: '俄罗斯方块', path: '/games/tetris', icon: '🧱', desc: '经典的俄罗斯方块游戏，考验你的反应速度' },
+        { id: 'minesweeper', name: '扫雷游戏', path: '/games/minesweeper', icon: '💣', desc: '经典的扫雷游戏，锻炼你的逻辑推理能力' },
+        { id: 'gomoku', name: '五子棋', path: '/games/gomoku', icon: '⚫⚪', desc: '经典的五子棋游戏，支持人机对战' },
+        { id: 'sudoku', name: '数独游戏', path: '/games/sudoku', icon: '🧩', desc: '经典的数独游戏，挑战你的数学思维' },
+        { id: 'memory-game', name: '记忆翻牌游戏', path: '/games/memory-game', icon: '🎴', desc: '考验记忆力的翻牌游戏，适合休闲放松' },
+        { id: 'link-game', name: '连连看', path: '/games/link-game', icon: '🔗', desc: '经典的连连看游戏，锻炼你的观察力' },
+        { id: 'puzzle-game', name: '拼图游戏', path: '/games/puzzle-game', icon: '🧩', desc: '将打乱的图片拼成完整图案，考验你的耐心' },
+        { id: 'pinball', name: '弹球游戏', path: '/games/pinball', icon: '🎱', desc: '经典的弹球游戏，享受物理碰撞的乐趣' },
+        { id: 'block-crush', name: '方块消除游戏', path: '/games/block-crush', icon: '💥', desc: '消除相同颜色的方块，获得高分' }
       ]
     }
   ],
@@ -116,27 +121,22 @@ const siteConfig = {
   // 页脚配置
   footer: {
     copyright: '© 2024 小马Office工具站. 保留所有权利.',
-    description: '小马Office工具站致力于为开发者和办公人员提供高效、易用的在线工具集，涵盖正则表达式、文本处理、编码转换等多个领域，帮助用户提升工作效率，简化复杂任务。',
+    description: '小马Office工具站致力于为用户提供高效、易用的在线工具集，涵盖职场办公、前端开发和休闲游戏等多个领域，帮助用户提升工作效率，丰富休闲时光。',
     features: [
-      '正则表达式工具：提取、测试、生成和替换',
-      '文本处理工具：提取、替换、格式化和分割',
-      '编码转换工具：Base64、URL和HTML实体转换',
-      'JSON工具：格式化、压缩和格式转换',
-      '时间日期工具：时间戳转换、日期计算和时区转换'
+      '职场办公软件：提供在线计算器和单位转换器',
+      '前端开发工具：CSS美化和JavaScript压缩工具',
+      '碎片时间小游戏：贪吃蛇和井字棋游戏'
     ],
     useCases: [
-      '开发者：快速测试正则表达式，转换编码',
-      '办公人员：批量处理文本，格式化数据',
-      '学生：学习正则表达式，处理作业数据',
-      '设计师：转换文本格式，准备数据素材'
+      '办公人员：快速进行计算和单位转换',
+      '开发者：美化和压缩前端代码',
+      '休闲用户：在碎片时间玩小游戏放松'
     ],
     quickLinks: [
       { name: '首页', url: '/' },
-      { name: '正则表达式工具', url: '/regex/extract' },
-      { name: '文本处理工具', url: '/text/extract' },
-      { name: '编码转换工具', url: '/encode/base64' },
-      { name: 'JSON工具', url: '/json/format' },
-      { name: '时间日期工具', url: '/time/timestamp' }
+      { name: '在线计算器', url: '/office/calculator' },
+      { name: 'CSS美化工具', url: '/frontend/css-beautifier' },
+      { name: '贪吃蛇游戏', url: '/games/snake' }
     ],
     legalLinks: [
       { name: '隐私政策', url: '#' },

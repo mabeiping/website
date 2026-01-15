@@ -1,0 +1,363 @@
+// Navbar组件样式
+
+.navbar {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.logo-text {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--color-text-primary);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  transition: all 0.3s ease;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+
+  &:focus {
+    outline: 2px solid #1e88e5;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+// 桌面端导航菜单
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+// 导航项样式
+.nav-item {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+
+  // 导航项下划线动画
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    transform: translateX(-50%);
+  }
+
+  &:hover {
+    color: var(--color-primary);
+    background-color: rgba(59, 130, 246, 0.08);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+
+    &::after {
+      width: 80%;
+      left: 50%;
+    }
+  }
+
+  &.router-link-active,
+  &.nuxt-link-active,
+  &.nuxt-link-exact-active {
+    color: var(--color-primary);
+    font-weight: 700;
+    background-color: transparent !important;
+    border: none;
+
+    &::after {
+      width: 80%;
+      background-color: var(--color-primary);
+    }
+  }
+}
+
+// 导航图标样式
+.nav-icon {
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+// 主题切换按钮
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+
+  &:hover {
+    background-color: var(--color-bg-tertiary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// 移动端汉堡菜单按钮
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: #34495e;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    background-color: #f8f9fa;
+    border-color: #1e88e5;
+    color: #1e88e5;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// 移动端菜单背景遮罩
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  animation: fadeIn 0.3s ease;
+}
+
+// 移动端菜单样式
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex;
+  }
+  
+  .mobile-menu-overlay {
+    display: block;
+  }
+  
+  // 隐藏桌面端菜单
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 80px;
+    right: -100%;
+    background-color: white;
+    width: 85%;
+    max-width: 320px;
+    height: calc(100vh - 80px);
+    padding: 1.5rem;
+    gap: 0.8rem;
+    align-items: stretch;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    overflow-y: auto;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0 0 0 12px;
+  }
+  
+  // 显示移动端菜单
+  .nav-menu.show-mobile-menu {
+    right: 0;
+    animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  // 移动端导航项样式
+  .nav-item {
+    font-size: 1.1rem;
+    padding: 1rem 1.2rem;
+    text-align: left;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .nav-item:hover {
+    transform: translateX(8px);
+  }
+  
+  // 导航项下划线调整
+  .nav-item::after {
+    left: 20px;
+    transform: none;
+  }
+  
+  .nav-item:hover::after {
+    left: 20px;
+  }
+  
+  // 优化移动端导航栏内容
+  .navbar-content {
+    padding: 0 1.2rem;
+  }
+  
+  // 简化移动端Logo
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  
+  .logo-img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+// 响应式设计
+@media (max-width: 1024px) {
+  .navbar-content {
+    padding: 0 1.5rem;
+  }
+  
+  .nav-menu {
+    gap: 1.5rem;
+  }
+  
+  .logo-text {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-content {
+    padding: 0 1rem;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem;
+  }
+  
+  .logo-img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .nav-menu {
+    width: 90%;
+  }
+}
+
+// 动画效果
+@keyframes slideInRight {
+  from {
+    right: -100%;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// 暗色主题样式已通过CSS变量集成到全局样式中，无需单独定义
+.dark-theme .nav-menu {
+  box-shadow: var(--shadow-sm);
+}

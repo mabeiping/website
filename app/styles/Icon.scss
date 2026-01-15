@@ -1,0 +1,53 @@
+// Icon组件样式
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+
+  // 图标悬停效果
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  // 图标大小变体
+  &.icon-sm {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.icon-md {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.icon-lg {
+    width: 36px;
+    height: 36px;
+  }
+
+  &.icon-xl {
+    width: 48px;
+    height: 48px;
+  }
+
+  // 工具图标样式
+  &.tool-icon {
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+
+  // 导航图标样式
+  &.nav-icon {
+    flex-shrink: 0;
+  }
+
+  // 箭头图标样式
+  &.arrow-icon {
+    transition: transform 0.3s ease;
+  }
+}

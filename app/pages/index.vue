@@ -15,23 +15,16 @@
           
           <!-- 工具分类展示 -->
           <div class="tool-categories">
-            <div v-for="category in toolCategories" :key="category.id" class="tool-category">
+            <div v-for="category in toolCategories" :key="category.id" class="tool-category" :id="category.id">
               <h3 class="category-title">
                 {{ category.name }}
               </h3>
               <div class="tool-grid">
-                <NuxtLink 
+                <ToolCard 
                   v-for="tool in category.tools" 
                   :key="tool.id" 
-                  :to="tool.path" 
-                  class="tool-card"
-                >
-                  <div class="tool-icon">{{ tool.icon }}</div>
-                  <div class="tool-info">
-                    <div class="tool-name">{{ tool.name }}</div>
-                    <div class="tool-desc">{{ tool.desc }}</div>
-                  </div>
-                </NuxtLink>
+                  :tool="tool" 
+                />
               </div>
             </div>
           </div>
@@ -44,30 +37,20 @@
         <Footer />
       </div>
     </section>
-    
-    <!-- 个人简介区域 - 独立在section之外 -->
-    <ProfileAside />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import ProfileAside from '../components/ProfileAside.vue'
 import Footer from '../components/Footer.vue'
+import Icon from '../components/Icon.vue'
+import ToolCard from '../components/ToolCard.vue'
 import siteConfig from '../config/siteConfig'
 
 // 从配置文件中获取相关配置
 const toolCategories = siteConfig.toolCategories
 
-// 添加首页类
-onMounted(() => {
-  document.body.classList.add('home-page')
-})
 
-// 移除首页类
-onUnmounted(() => {
-  document.body.classList.remove('home-page')
-})
 </script>
 
 <style scoped>
@@ -188,86 +171,26 @@ onUnmounted(() => {
 }
 
 .tool-category {
-  background-color: white;
+  background-color: var(--color-bg-card);
   border-radius: 8px;
   padding: 0.8rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 .category-title {
   font-size: 1.1rem;
-  color: #000000;
+  color: var(--color-primary);
   margin-bottom: 0.6rem;
   padding-bottom: 0.2rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 /* 工具网格样式 */
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-/* 工具卡片样式 */
-.tool-card {
-  background-color: #f5f5f5;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 0.6rem;
-  text-decoration: none;
-  color: #000000;
-  display: flex;
-  align-items: flex-start;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 0.5rem;
-  cursor: pointer;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.tool-card:hover {
-  background-color: #e8f0fe;
-  border-color: #1e88e5;
-}
-
-.tool-card:active {
-  transform: translateY(0);
-}
-
-/* 工具图标样式 */
-.tool-icon {
-  font-size: 1.3rem;
-  line-height: 1;
-  margin-top: 0.1rem;
-  flex-shrink: 0;
-}
-
-/* 工具信息样式 */
-.tool-info {
-  flex: 1;
-  width: 100%;
-  min-width: 0;
-}
-
-/* 工具名称样式 */
-.tool-name {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 0.15rem;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow: visible;
-}
-
-/* 工具简介样式 */
-.tool-desc {
-  font-size: 0.7rem;
-  color: #888888;
-  line-height: 1.3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin: 0;
 }
 
 /* 响应式设计 */
@@ -301,65 +224,5 @@ onUnmounted(() => {
   }
 }
 
-/* 暗色主题样式 */
-.dark-theme .content {
-  background-color: #1a1a1a;
-  color: #e0e0e0;
-}
-
-.dark-theme .footer {
-  background-color: #2d2d2d;
-  border-top-color: #404040;
-  color: #e0e0e0;
-}
-
-.dark-theme .footer-links a {
-  color: #e0e0e0;
-}
-
-.dark-theme .footer-links a:hover {
-  color: #a0a0a0;
-}
-
-.dark-theme .footer-separator {
-  background-color: #404040;
-}
-
-.dark-theme .website-intro {
-  background-color: #2d2d2d;
-  border-color: #404040;
-}
-
-.dark-theme .intro-text {
-  color: #b0b0b0;
-}
-
-.dark-theme .tool-category {
-  background-color: #2d2d2d;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.dark-theme .category-title {
-  color: #e0e0e0;
-  border-bottom-color: #404040;
-}
-
-.dark-theme .tool-card {
-  background-color: #2d2d2d;
-  border-color: #404040;
-  color: #e0e0e0;
-}
-
-.dark-theme .tool-card:hover {
-  background-color: #3a3a3a;
-  border-color: #1e88e5;
-}
-
-.dark-theme .tool-name {
-  color: #e0e0e0;
-}
-
-.dark-theme .tool-desc {
-  color: #666666;
-}
+/* 暗色主题样式已集成到CSS变量中，无需单独定义 */
 </style>
