@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deployc": " wrangler pages deploy .output/public --project-name website"
+    "deployc": "npx nuxt generate && npx wrangler pages deploy .output/public --project-name website"
   },
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^7.1.0",

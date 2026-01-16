@@ -356,11 +356,6 @@
   }
 }
 
-  .currency-converter-page .currency-converter-info {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-}
-
 /* 深色主题类样式 */
 .dark-theme .currency-converter-page .currency-converter-container {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
