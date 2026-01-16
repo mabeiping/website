@@ -1,0 +1,476 @@
+/* 番茄工作法计时器样式 */
+.pomodoro-timer-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  
+.pomodoro-timer-page .page-title {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  
+.pomodoro-timer-page .pomodoro-timer-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    margin-bottom: 30px;
+    
+    /* 计时器主体 */
+.pomodoro-timer-page .pomodoro-timer-container .timer-main {
+      background-color: var(--card-background);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      
+      /* 计时器显示 */
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display .timer-mode-indicator {
+          font-size: 16px;
+          font-weight: 500;
+          color: var(--text-secondary);
+        }
+        
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display .timer-circle {
+          position: relative;
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          background-color: var(--background);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid var(--border-color);
+          overflow: hidden;
+          transition: all 0.3s ease;
+          
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display .timer-circle .active {
+            animation: pulse 1s infinite;
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display .timer-circle .timer-text {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display .timer-circle .timer-text .timer-time {
+              font-size: 64px;
+              font-weight: 600;
+              color: var(--text-color);
+            }
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display .timer-circle .timer-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: var(--progress);
+            background-color: rgba(59, 130, 246, 0.2);
+            transition: height 1s linear;
+          }
+        }
+      }
+      
+      /* 控制按钮 */
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-controls {
+        display: flex;
+        gap: 15px;
+        
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-controls .control-btn {
+          padding: 12px 24px;
+          border: 1px solid var(--border-color);
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-controls .control-btn .primary {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-controls .control-btn .primary :hover {
+              background-color: var(--primary-hover);
+              transform: translateY(-1px);
+              box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            }
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-controls .control-btn .secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-controls .control-btn .secondary :hover {
+              background-color: rgba(59, 130, 246, 0.1);
+              border-color: var(--primary-color);
+              color: var(--primary-color);
+            }
+          }
+        }
+      }
+      
+      /* 模式切换 */
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .mode-selector {
+        display: flex;
+        gap: 10px;
+        
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .mode-selector .mode-btn {
+          padding: 10px 20px;
+          border: 1px solid var(--border-color);
+          border-radius: 20px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          background-color: transparent;
+          color: var(--text-color);
+          
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .mode-selector .mode-btn :hover {
+            background-color: rgba(59, 130, 246, 0.1);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .mode-selector .mode-btn .active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+          }
+        }
+      }
+    }
+    
+    /* 设置面板 */
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel {
+      background-color: var(--card-background);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel h2 {
+        margin: 0 0 25px 0;
+        font-size: 20px;
+        color: var(--text-color);
+        font-weight: 600;
+      }
+      
+      /* 设置组 */
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group {
+        margin-bottom: 25px;
+        
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group :last-child {
+          margin-bottom: 0;
+        }
+        
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group h3 {
+          margin: 0 0 15px 0;
+          font-size: 16px;
+          color: var(--text-color);
+          font-weight: 600;
+        }
+        
+        /* 设置项 */
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 15px;
+          
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item :last-child {
+            margin-bottom: 0;
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color);
+            min-width: 150px;
+          }
+          
+          input[type="number"],
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: var(--input-background);
+            color: var(--text-color);
+            min-width: 80px;
+            
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item select :focus {
+              outline: none;
+              border-color: var(--primary-color);
+              box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            }
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item input[type="range"] {
+            flex: 1;
+            margin: 0 10px;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--border-color);
+            outline: none;
+            -webkit-appearance: none;
+            
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item input[type="range"] ::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              appearance: none;
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              background: var(--primary-color);
+              cursor: pointer;
+              transition: all 0.3s ease;
+              
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item input[type="range"] ::-webkit-slider-thumb :hover {
+                transform: scale(1.2);
+                box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.1);
+              }
+            }
+            
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item input[type="range"] ::-moz-range-thumb {
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              background: var(--primary-color);
+              cursor: pointer;
+              border: none;
+              transition: all 0.3s ease;
+              
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item input[type="range"] ::-moz-range-thumb :hover {
+                transform: scale(1.2);
+                box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.1);
+              }
+            }
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item .volume-value {
+            font-size: 12px;
+            color: var(--text-secondary);
+            min-width: 40px;
+            text-align: right;
+          }
+        }
+      }
+      
+      /* 统计信息 */
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .stats-group {
+        background-color: var(--background);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 15px;
+        
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .stats-group h3 {
+          margin: 0 0 15px 0;
+          font-size: 16px;
+          color: var(--text-color);
+          font-weight: 600;
+        }
+        
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .stats-group .stat-item {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .stats-group .stat-item :last-child {
+            margin-bottom: 0;
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .stats-group .stat-item .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+          }
+          
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .stats-group .stat-item .stat-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+  
+  /* 功能说明 */
+.pomodoro-timer-page .pomodoro-timer-info {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+.pomodoro-timer-page .pomodoro-timer-info h2 {
+      margin: 0 0 15px 0;
+      font-size: 20px;
+      color: var(--text-color);
+      font-weight: 600;
+    }
+    
+.pomodoro-timer-page .pomodoro-timer-info p {
+      margin: 0 0 15px 0;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    
+.pomodoro-timer-page .pomodoro-timer-info ul {
+      margin: 0;
+      padding-left: 20px;
+      
+.pomodoro-timer-page .pomodoro-timer-info ul li {
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+        line-height: 1.6;
+        
+.pomodoro-timer-page .pomodoro-timer-info ul li :last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+/* 动画效果 */
+@keyframes pulse {
+0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+50% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+.pomodoro-timer-page {
+.pomodoro-timer-page .pomodoro-timer-container {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+.pomodoro-timer-page {
+    padding: 15px;
+    
+.pomodoro-timer-page .page-title {
+      font-size: 24px;
+    }
+    
+.pomodoro-timer-page .pomodoro-timer-container {
+      gap: 20px;
+      
+.pomodoro-timer-page .pomodoro-timer-container .timer-main {
+        padding: 20px;
+        gap: 20px;
+        
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display {
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display .timer-circle {
+            width: 250px;
+            height: 250px;
+            
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display .timer-circle .timer-text {
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-display .timer-circle .timer-text .timer-time {
+                font-size: 48px;
+              }
+            }
+          }
+        }
+        
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-controls {
+          flex-direction: column;
+          width: 100%;
+          
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .timer-controls .control-btn {
+            width: 100%;
+          }
+        }
+        
+.pomodoro-timer-page .pomodoro-timer-container .timer-main .mode-selector {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+      
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel {
+        padding: 20px;
+        
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group {
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+            
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item label {
+              min-width: auto;
+            }
+            
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item input[type="range"] {
+              margin: 0;
+            }
+            
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel .setting-group .setting-item .volume-value {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    
+.pomodoro-timer-page .pomodoro-timer-info {
+      padding: 20px;
+    }
+  }
+}
+
+/* 深色主题样式 */
+@media (prefers-color-scheme: dark) {
+.pomodoro-timer-page {
+.pomodoro-timer-page .pomodoro-timer-container {
+      .timer-main,
+.pomodoro-timer-page .pomodoro-timer-container .settings-panel {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+    }
+    
+.pomodoro-timer-page .pomodoro-timer-info {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+/* 深色主题类样式 */
+.dark-theme {
+.dark-theme .pomodoro-timer-page {
+.dark-theme .pomodoro-timer-page .pomodoro-timer-container {
+      .timer-main,
+.dark-theme .pomodoro-timer-page .pomodoro-timer-container .settings-panel {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+    }
+    
+.dark-theme .pomodoro-timer-page .pomodoro-timer-info {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+}

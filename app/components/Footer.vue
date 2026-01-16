@@ -21,6 +21,6 @@ import siteConfig from '../config/siteConfig'
 const footerConfig = siteConfig.footer
 </script>
 
-<style scoped lang="scss">
-@import '../styles/Footer.scss';
+<style>
+@import '../styles/Footer.css';
 </style>

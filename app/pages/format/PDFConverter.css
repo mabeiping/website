@@ -1,0 +1,555 @@
+/* PDF转换工具样式 */
+.pdf-converter-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pdf-converter-page .page-title {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.pdf-converter-page .pdf-converter-container {
+  margin-bottom: 30px;
+}
+
+/* 转换类型选择 */
+.pdf-converter-page .pdf-converter-container .conversion-type {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-type h2 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-type .type-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-type .type-buttons .type-btn {
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-type .type-buttons .type-btn:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-type .type-buttons .type-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* 转换界面 */
+.pdf-converter-page .pdf-converter-container .conversion-interface {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+/* 上传区域 */
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section h2 {
+  margin: 0 0 25px 0;
+  font-size: 20px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* 上传区域 */
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .upload-area {
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 25px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .upload-area:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .upload-area .upload-content {
+  transition: all 0.3s ease;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .upload-area .upload-content.drag-over {
+  transform: scale(1.02);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .upload-area .upload-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .upload-area .upload-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0 0 8px 0;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .upload-area .upload-hint {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* 已上传文件列表 */
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list {
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list h3 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: var(--input-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item:last-child {
+  margin-bottom: 0;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item .file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item .file-info .file-icon {
+  font-size: 20px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item .file-info .file-details {
+  min-width: 0;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item .file-info .file-details .file-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item .file-info .file-details .file-size {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item .remove-file-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .file-list .file-item .remove-file-btn:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+  transform: scale(1.1);
+}
+
+/* 转换设置 */
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .conversion-settings {
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .conversion-settings h3 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .conversion-settings .setting-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .conversion-settings .setting-item:last-child {
+  margin-bottom: 0;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .conversion-settings .setting-item label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  min-width: 100px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .conversion-settings .setting-item select {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: var(--input-background);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .conversion-settings .setting-item select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* 操作按钮 */
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .action-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .action-buttons .convert-btn {
+  flex: 1;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .action-buttons .convert-btn:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .action-buttons .convert-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .action-buttons .convert-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .action-buttons .clear-btn {
+  padding: 14px 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .action-buttons .clear-btn:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* 结果区域 */
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section h2 {
+  margin: 0 0 25px 0;
+  font-size: 20px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list {
+  margin-bottom: 25px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item:last-child {
+  margin-bottom: 0;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item .result-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item .result-info .result-icon {
+  font-size: 24px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item .result-info .result-details {
+  min-width: 0;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item .result-info .result-details .result-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item .result-info .result-details .result-size {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item .result-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item .result-actions .download-btn,
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item .result-actions .preview-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-list .result-item .result-actions .preview-btn:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .download-all-btn {
+  width: 100%;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .download-all-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.pdf-converter-page .pdf-converter-container .conversion-interface .result-section .download-all-btn:active {
+  transform: translateY(0);
+}
+
+/* 功能说明 */
+.pdf-converter-page .pdf-converter-info {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-converter-page .pdf-converter-info h2 {
+  margin: 0 0 15px 0;
+  font-size: 20px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.pdf-converter-page .pdf-converter-info p {
+  margin: 0 0 15px 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.pdf-converter-page .pdf-converter-info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.pdf-converter-page .pdf-converter-info ul li {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.pdf-converter-page .pdf-converter-info ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .pdf-converter-page {
+    padding: 15px;
+  }
+
+  .pdf-converter-page .page-title {
+    font-size: 24px;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-type {
+    padding: 20px;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-type h2 {
+    font-size: 18px;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-type .type-buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-interface .upload-section,
+  .pdf-converter-page .pdf-converter-container .conversion-interface .result-section {
+    padding: 20px;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-interface .result-section h2 {
+    font-size: 18px;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-interface .result-section .action-buttons {
+    flex-direction: column;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .upload-area {
+    padding: 30px 15px;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-interface .upload-section .upload-area .upload-icon {
+    font-size: 36px;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .pdf-converter-page .pdf-converter-container .conversion-interface .result-section .result-item .result-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .pdf-converter-page .pdf-converter-info {
+    padding: 20px;
+  }
+}
+
+/* 深色主题样式 */
+@media (prefers-color-scheme: dark) {
+  .pdf-converter-page .pdf-converter-container .conversion-type,
+  .pdf-converter-page .pdf-converter-container .conversion-interface .upload-section,
+  .pdf-converter-page .pdf-converter-container .conversion-interface .result-section {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.pdf-converter-page .pdf-converter-info {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 深色主题类样式 */
+.dark-theme .pdf-converter-page .pdf-converter-container .conversion-type,
+.dark-theme .pdf-converter-page .pdf-converter-container .conversion-interface .upload-section,
+.dark-theme .pdf-converter-page .pdf-converter-container .conversion-interface .result-section {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .pdf-converter-page .pdf-converter-info {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

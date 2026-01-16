@@ -102,6 +102,6 @@ const toggleMobileMenu = () => {
 }
 </script>
 
-<style scoped lang="scss">
-@import '../styles/Navbar.scss';
+<style>
+@import '../styles/Navbar.css';
 </style>

@@ -1,0 +1,226 @@
+/* Calculator组件样式 */
+
+.calculator-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.calculator-page .page-title {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: '黑体', sans-serif;
+}
+
+.calculator-page .calculator-container {
+  background-color: var(--color-bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--color-border);
+}
+
+/* 显示区域 */
+.calculator-page .calculator-container .calculator-display {
+  background-color: var(--color-bg-tertiary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: right;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calculator-page .calculator-container .calculator-display .display-history {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  min-height: 20px;
+}
+
+.calculator-page .calculator-container .calculator-display .display-current {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* 按键区域 */
+.calculator-page .calculator-container .calculator-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.calculator-page .calculator-container .calculator-buttons .button-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* 按键样式 */
+.calculator-page .calculator-container .calc-button {
+  flex: 1;
+  padding: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator-page .calculator-container .calc-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.calculator-page .calculator-container .calc-button:active {
+  transform: translateY(0);
+}
+
+/* 按键类型样式 */
+.calculator-page .calculator-container .btn-number {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+}
+
+.calculator-page .calculator-container .btn-operator {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.calculator-page .calculator-container .btn-clear,
+.calculator-page .calculator-container .btn-delete {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.calculator-page .calculator-container .btn-equals {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.calculator-page .calculator-container .btn-zero {
+  flex: 2;
+}
+
+/* 功能说明区域 */
+.calculator-page .calculator-info {
+  background-color: var(--color-bg-secondary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.calculator-page .calculator-info h2 {
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.calculator-page .calculator-info p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.calculator-page .calculator-info ul {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  padding-left: 1.5rem;
+}
+
+.calculator-page .calculator-info ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.calculator-page .calculator-info ul li::marker {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .calculator-page {
+    padding: 1rem;
+  }
+
+  .calculator-page .page-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .calculator-page .calculator-container {
+    padding: 1.5rem;
+  }
+
+  .calculator-page .calculator-container .display-current {
+    font-size: 2rem;
+  }
+
+  .calculator-page .calculator-container .calc-button {
+    padding: 1rem;
+    font-size: 1.1rem;
+    min-height: 50px;
+  }
+
+  .calculator-page .calculator-container .button-row,
+  .calculator-page .calculator-container .calculator-buttons {
+    gap: 0.5rem;
+  }
+
+  .calculator-page .calculator-info {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .calculator-page .calculator-container {
+    padding: 1rem;
+  }
+
+  .calculator-page .calculator-container .display-current {
+    font-size: 1.75rem;
+  }
+
+  .calculator-page .calculator-container .calc-button {
+    padding: 0.875rem;
+    font-size: 1rem;
+    min-height: 45px;
+  }
+}
+
+/* 暗色主题优化 */
+.dark-theme .calculator-page .calculator-container {
+  background-color: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+.dark-theme .calculator-page .calculator-container .calculator-display {
+  background-color: var(--color-bg-tertiary);
+}
+
+.dark-theme .calculator-page .calculator-container .btn-number {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+}
+
+.dark-theme .calculator-page .calculator-info {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}

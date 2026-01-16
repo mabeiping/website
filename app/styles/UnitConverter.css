@@ -1,0 +1,276 @@
+/* UnitConverter组件样式 */
+
+.unit-converter-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+.unit-converter-page .page-title {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: '黑体', sans-serif;
+  }
+
+.unit-converter-page .converter-container {
+    background-color: var(--color-bg-card);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--color-border);
+
+    /* 单位转换类型选择器 */
+.unit-converter-page .converter-container .converter-type-selector {
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+.unit-converter-page .converter-container .converter-type-selector label {
+        font-weight: 600;
+        color: var(--color-text-primary);
+        min-width: 80px;
+      }
+
+.unit-converter-page .converter-container .converter-type-selector select {
+        flex: 1;
+        padding: 0.75rem;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+.unit-converter-page .converter-container .converter-type-selector select :hover {
+          border-color: var(--color-primary);
+          box-shadow: var(--shadow-sm);
+        }
+
+.unit-converter-page .converter-container .converter-type-selector select :focus {
+          outline: none;
+          border-color: var(--color-primary);
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+      }
+    }
+
+    /* 转换区域 */
+.unit-converter-page .converter-container .conversion-area {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      /* 转换输入输出公共样式 */
+      .conversion-input,
+.unit-converter-page .converter-container .conversion-area .conversion-output {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+.unit-converter-page .converter-container .conversion-area .conversion-output label {
+          font-weight: 600;
+          color: var(--color-text-primary);
+        }
+
+.unit-converter-page .converter-container .conversion-area .conversion-output .input-group {
+          display: flex;
+          gap: 0.5rem;
+
+.unit-converter-page .converter-container .conversion-area .conversion-output .input-group input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            font-size: 1rem;
+            transition: all 0.2s ease;
+
+.unit-converter-page .converter-container .conversion-area .conversion-output .input-group input :focus {
+              outline: none;
+              border-color: var(--color-primary);
+              box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            }
+
+.unit-converter-page .converter-container .conversion-area .conversion-output .input-group input :read-only {
+              background-color: var(--color-bg-secondary);
+              cursor: not-allowed;
+            }
+          }
+
+.unit-converter-page .converter-container .conversion-area .conversion-output .input-group select {
+            min-width: 120px;
+            padding: 0.75rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+.unit-converter-page .converter-container .conversion-area .conversion-output .input-group select :hover {
+              border-color: var(--color-primary);
+              box-shadow: var(--shadow-sm);
+            }
+
+.unit-converter-page .converter-container .conversion-area .conversion-output .input-group select :focus {
+              outline: none;
+              border-color: var(--color-primary);
+              box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            }
+          }
+        }
+      }
+    }
+
+    /* 转换方向切换按钮 */
+.unit-converter-page .converter-container .conversion-switch {
+      display: flex;
+      justify-content: center;
+      margin: 1rem 0;
+
+.unit-converter-page .converter-container .conversion-switch .switch-button {
+        padding: 0.75rem 1.5rem;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+.unit-converter-page .converter-container .conversion-switch .switch-button :hover {
+          border-color: var(--color-primary);
+          background-color: var(--color-primary);
+          color: white;
+          transform: rotate(180deg);
+        }
+
+.unit-converter-page .converter-container .conversion-switch .switch-button :active {
+          transform: rotate(180deg) scale(0.95);
+        }
+      }
+    }
+  }
+
+  /* 功能说明区域 */
+.unit-converter-page .converter-info {
+    background-color: var(--color-bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+
+.unit-converter-page .converter-info h2 {
+      font-size: 1.5rem;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+.unit-converter-page .converter-info p {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+.unit-converter-page .converter-info ul {
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      padding-left: 1.5rem;
+
+.unit-converter-page .converter-info ul li {
+        margin-bottom: 0.5rem;
+        position: relative;
+
+.unit-converter-page .converter-info ul li ::marker {
+          color: var(--color-primary);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+.unit-converter-page {
+    padding: 1rem;
+
+.unit-converter-page .page-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+.unit-converter-page .converter-container {
+      padding: 1.5rem;
+
+.unit-converter-page .converter-container .converter-type-selector {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+      }
+
+.unit-converter-page .converter-container .conversion-area {
+        gap: 1rem;
+      }
+
+.unit-converter-page .converter-container .input-group {
+        flex-direction: column;
+      }
+
+.unit-converter-page .converter-container select {
+        min-width: auto;
+      }
+    }
+
+.unit-converter-page .converter-info {
+      padding: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+.unit-converter-page {
+.unit-converter-page .converter-container {
+      padding: 1rem;
+    }
+  }
+}
+
+/* 暗色主题优化 */
+.dark-theme {
+.dark-theme .unit-converter-page {
+.dark-theme .unit-converter-page .converter-container {
+      background-color: var(--color-bg-card);
+      border-color: var(--color-border);
+
+      .converter-type-selector select,
+      .input-group input,
+      .input-group select,
+.dark-theme .unit-converter-page .converter-container .switch-button {
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
+        border-color: var(--color-border);
+      }
+
+.dark-theme .unit-converter-page .converter-container .switch-button:hover {
+        background-color: var(--color-primary);
+        color: white;
+      }
+
+.dark-theme .unit-converter-page .converter-container .input-group input:read-only {
+        background-color: var(--color-bg-secondary);
+      }
+    }
+
+.dark-theme .unit-converter-page .converter-info {
+      background-color: var(--color-bg-secondary);
+      border-color: var(--color-border);
+    }
+  }
+}

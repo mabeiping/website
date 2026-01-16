@@ -1,4 +1,4 @@
-// Navbar组件样式
+/* Navbar组件样式 */
 
 .navbar {
   background-color: var(--color-bg-primary);
@@ -51,7 +51,7 @@
   border-radius: 8px;
   transition: transform 0.3s ease;
 
-  &:hover {
+.logo-img :hover {
     transform: scale(1.1);
   }
 }
@@ -71,14 +71,14 @@
   display: inline-block;
   cursor: pointer;
 
-  &:focus {
+.logo-link :focus {
     outline: 2px solid #1e88e5;
     outline-offset: 2px;
     border-radius: 4px;
   }
 }
 
-// 桌面端导航菜单
+/* 桌面端导航菜单 */
 .nav-menu {
   display: flex;
   gap: 2rem;
@@ -89,7 +89,7 @@
   transition: all 0.3s ease;
 }
 
-// 导航项样式
+/* 导航项样式 */
 .nav-item {
   color: var(--color-text-primary);
   text-decoration: none;
@@ -107,8 +107,8 @@
   transition: all 0.3s ease;
   transform: translateZ(0);
 
-  // 导航项下划线动画
-  &::after {
+  /* 导航项下划线动画 */
+.nav-item ::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -121,13 +121,13 @@
     transform: translateX(-50%);
   }
 
-  &:hover {
+.nav-item :hover {
     color: var(--color-primary);
     background-color: rgba(59, 130, 246, 0.08);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
 
-    &::after {
+.nav-item :hover ::after {
       width: 80%;
       left: 50%;
     }
@@ -135,26 +135,26 @@
 
   &.router-link-active,
   &.nuxt-link-active,
-  &.nuxt-link-exact-active {
+.nav-item .nuxt-link-exact-active {
     color: var(--color-primary);
     font-weight: 700;
     background-color: transparent !important;
     border: none;
 
-    &::after {
+.nav-item .nuxt-link-exact-active ::after {
       width: 80%;
       background-color: var(--color-primary);
     }
   }
 }
 
-// 导航图标样式
+/* 导航图标样式 */
 .nav-icon {
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
-// 主题切换按钮
+/* 主题切换按钮 */
 .theme-toggle {
   background: none;
   border: 1px solid var(--color-border);
@@ -171,7 +171,7 @@
   transition: all 0.3s ease;
   box-shadow: var(--shadow-sm);
 
-  &:hover {
+.theme-toggle :hover {
     background-color: var(--color-bg-tertiary);
     border-color: var(--color-primary);
     color: var(--color-primary);
@@ -179,12 +179,12 @@
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
   }
 
-  &:active {
+.theme-toggle :active {
     transform: scale(0.95);
   }
 }
 
-// 移动端汉堡菜单按钮
+/* 移动端汉堡菜单按钮 */
 .mobile-menu-button {
   display: none;
   background: none;
@@ -201,19 +201,19 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
-  &:hover {
+.mobile-menu-button :hover {
     background-color: #f8f9fa;
     border-color: #1e88e5;
     color: #1e88e5;
     transform: scale(1.1);
   }
 
-  &:active {
+.mobile-menu-button :active {
     transform: scale(0.95);
   }
 }
 
-// 移动端菜单背景遮罩
+/* 移动端菜单背景遮罩 */
 .mobile-menu-overlay {
   display: none;
   position: fixed;
@@ -226,18 +226,18 @@
   animation: fadeIn 0.3s ease;
 }
 
-// 移动端菜单样式
+/* 移动端菜单样式 */
 @media (max-width: 768px) {
-  .mobile-menu-button {
+.mobile-menu-button {
     display: flex;
   }
   
-  .mobile-menu-overlay {
+.mobile-menu-overlay {
     display: block;
   }
   
-  // 隐藏桌面端菜单
-  .nav-menu {
+  /* 隐藏桌面端菜单 */
+.nav-menu {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -257,14 +257,14 @@
     border-radius: 0 0 0 12px;
   }
   
-  // 显示移动端菜单
-  .nav-menu.show-mobile-menu {
+  /* 显示移动端菜单 */
+.nav-menu.show-mobile-menu {
     right: 0;
     animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  // 移动端导航项样式
-  .nav-item {
+  /* 移动端导航项样式 */
+.nav-item {
     font-size: 1.1rem;
     padding: 1rem 1.2rem;
     text-align: left;
@@ -272,92 +272,92 @@
     transition: all 0.2s ease;
   }
   
-  .nav-item:hover {
+.nav-item:hover {
     transform: translateX(8px);
   }
   
-  // 导航项下划线调整
-  .nav-item::after {
+  /* 导航项下划线调整 */
+.nav-item::after {
     left: 20px;
     transform: none;
   }
   
-  .nav-item:hover::after {
+.nav-item:hover::after {
     left: 20px;
   }
   
-  // 优化移动端导航栏内容
-  .navbar-content {
+  /* 优化移动端导航栏内容 */
+.navbar-content {
     padding: 0 1.2rem;
   }
   
-  // 简化移动端Logo
-  .logo-text {
+  /* 简化移动端Logo */
+.logo-text {
     font-size: 1.2rem;
   }
   
-  .logo-img {
+.logo-img {
     width: 32px;
     height: 32px;
   }
 }
 
-// 响应式设计
+/* 响应式设计 */
 @media (max-width: 1024px) {
-  .navbar-content {
+.navbar-content {
     padding: 0 1.5rem;
   }
   
-  .nav-menu {
+.nav-menu {
     gap: 1.5rem;
   }
   
-  .logo-text {
+.logo-text {
     font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
-  .navbar-content {
+.navbar-content {
     padding: 0 1rem;
   }
   
-  .logo-text {
+.logo-text {
     font-size: 1.1rem;
   }
   
-  .logo-img {
+.logo-img {
     width: 28px;
     height: 28px;
   }
   
-  .nav-menu {
+.nav-menu {
     width: 90%;
   }
 }
 
-// 动画效果
+/* 动画效果 */
 @keyframes slideInRight {
-  from {
+from {
     right: -100%;
     opacity: 0;
   }
-  to {
+to {
     right: 0;
     opacity: 1;
   }
 }
 
 @keyframes fadeIn {
-  from {
+from {
     opacity: 0;
   }
-  to {
+to {
     opacity: 1;
   }
 }
 
-// 暗色主题样式已通过CSS变量集成到全局样式中，无需单独定义
+/* 暗色主题样式已通过CSS变量集成到全局样式中，无需单独定义 */
 .dark-theme .nav-menu {
   box-shadow: var(--shadow-sm);
 }

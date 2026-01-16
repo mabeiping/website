@@ -1,4 +1,4 @@
-// Content组件样式
+/* Content组件样式 */
 
 .content {
   background-color: var(--color-bg-primary);
@@ -15,31 +15,31 @@
   scrollbar-width: thin;
   scrollbar-color: var(--color-gray-400) var(--color-bg-tertiary);
 
-  // 自定义滚动条样式
-  &::-webkit-scrollbar {
+  /* 自定义滚动条样式 */
+.content ::-webkit-scrollbar {
     width: 6px;
   }
 
-  &::-webkit-scrollbar-track {
+.content ::-webkit-scrollbar-track {
     background: var(--color-bg-tertiary);
   }
 
-  &::-webkit-scrollbar-thumb {
+.content ::-webkit-scrollbar-thumb {
     background: var(--color-gray-400);
     border-radius: 3px;
   }
 
-  &::-webkit-scrollbar-thumb:hover {
+.content ::-webkit-scrollbar-thumb:hover {
     background: var(--color-gray-500);
   }
 }
 
-// 确保在暗色主题下，内容区域的背景颜色正确显示
+/* 确保在暗色主题下，内容区域的背景颜色正确显示 */
 .dark-theme .content {
   background-color: var(--color-bg-primary);
 }
 
-// 主内容包装器 - 使用flex布局包含主内容和个人简介
+/* 主内容包装器 - 使用flex布局包含主内容和个人简介 */
 .main-content-wrapper {
   display: flex;
   gap: 2rem;
@@ -47,7 +47,7 @@
   min-height: 0;
 }
 
-// 主内容区域
+/* 主内容区域 */
 .main-content-area {
   flex: 1;
   min-height: 0;
@@ -55,7 +55,7 @@
   flex-direction: column;
 }
 
-// 个人简介区域
+/* 个人简介区域 */
 .profile-section {
   width: 320px;
   flex-shrink: 0;
@@ -73,37 +73,37 @@
   text-align: center;
 }
 
-// 响应式设计
+/* 响应式设计 */
 @media (max-width: 1200px) {
-  .main-content-wrapper {
+.main-content-wrapper {
     gap: 1.5rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .content {
+.content {
     margin-left: 0;
     width: 100%;
     padding: 1.5rem;
   }
   
-  .main-content-wrapper {
+.main-content-wrapper {
     flex-direction: column;
     gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .content {
+.content {
     padding: 1rem;
   }
   
-  .profile-container {
+.profile-container {
     padding: 1.2rem;
   }
 }
 
-// 内容区与页脚分隔线
+/* 内容区与页脚分隔线 */
 .footer-separator {
   height: 1px;
   background-color: var(--color-border);
@@ -111,7 +111,7 @@
   width: 100%;
 }
 
-// 页脚栏样式
+/* 页脚栏样式 */
 .footer {
   background-color: var(--color-bg-card);
   color: var(--color-text-primary);
@@ -119,7 +119,7 @@
   margin-top: auto;
   border-top: 1px solid var(--color-border);
 
-  .footer-content {
+.footer .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,24 +127,24 @@
     gap: 1rem;
   }
 
-  .footer-links {
+.footer .footer-links {
     display: flex;
     gap: 1rem;
 
-    a {
+.footer .footer-links a {
       color: var(--color-text-primary);
       text-decoration: none;
       font-size: 0.9rem;
       transition: color 0.3s ease;
 
-      &:hover {
+.footer .footer-links a :hover {
         color: var(--color-primary);
       }
     }
   }
 }
 
-// 首页内容样式
+/* 首页内容样式 */
 .home-content {
   flex: 1;
 }
@@ -156,7 +156,7 @@
   font-weight: 700;
 }
 
-// 网站介绍样式
+/* 网站介绍样式 */
 .website-intro {
   background-color: var(--color-bg-secondary);
   padding: 1.5rem;
@@ -164,7 +164,7 @@
   margin-bottom: 2rem;
   border: 1px solid var(--color-border);
 
-  .intro-text {
+.website-intro .intro-text {
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--color-text-primary);
@@ -172,17 +172,17 @@
   }
 }
 
-// 暗色主题下的网站介绍样式
+/* 暗色主题下的网站介绍样式 */
 :deep(.dark-theme) .website-intro {
   background-color: var(--color-bg-secondary) !important;
   border-color: var(--color-border) !important;
 
-  .intro-text {
+:deep(.dark-theme) .website-intro .intro-text {
     color: var(--color-text-primary) !important;
   }
 }
 
-// 工具分类展示样式
+/* 工具分类展示样式 */
 .tool-categories {
   display: flex;
   flex-direction: column;
@@ -206,14 +206,14 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-// 工具网格样式
+/* 工具网格样式 */
 .tool-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 0.15rem;
 }
 
-// 工具简介样式
+/* 工具简介样式 */
 .tool-desc {
   font-size: 0.65rem;
   color: var(--color-text-muted);
@@ -226,39 +226,39 @@
   margin: 0;
 }
 
-// 响应式设计
+/* 响应式设计 */
 @media (max-width: 768px) {
-  .content {
+.content {
     height: auto;
   }
 
-  .website-intro {
+.website-intro {
     padding: 1.2rem;
     margin-bottom: 1.5rem;
 
-    .intro-text {
+.website-intro .intro-text {
       font-size: 1rem;
       line-height: 1.5;
     }
   }
 
-  .page-title {
+.page-title {
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .website-intro {
+.website-intro {
     padding: 1rem;
     margin-bottom: 1.2rem;
 
-    .intro-text {
+.website-intro .intro-text {
       font-size: 0.95rem;
     }
   }
 
-  .page-title {
+.page-title {
     font-size: 1.6rem;
   }
 }

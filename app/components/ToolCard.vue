@@ -1,10 +1,10 @@
 <template>
-  <div :id="tool.id" class="tool-card">
+  <NuxtLink :to="tool.path" class="tool-card" :id="tool.id">
     <Icon :name="tool.id" :size="36" class="tool-icon" />
     <div class="tool-info">
       <div class="tool-name">{{ tool.name }}</div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup>
@@ -18,6 +18,6 @@ const props = defineProps({
 })
 </script>
 
-<style scoped lang="scss">
-@import '../styles/ToolCard.scss';
+<style>
+@import '../styles/ToolCard.css';
 </style>

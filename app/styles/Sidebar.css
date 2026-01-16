@@ -1,0 +1,140 @@
+/* Sidebar组件样式 */
+
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 260px;
+  background-color: var(--color-bg-primary);
+  padding: 1rem;
+  overflow-y: auto;
+  border-right: 1px solid var(--color-border);
+  height: calc(100vh - 80px);
+  z-index: 50;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+/* 自定义滚动条样式 */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: var(--color-bg-tertiary);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--color-gray-400);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+}
+
+.sidebar h3 {
+  margin-bottom: 1.25rem;
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.sidebar .sidebar-menu {
+  list-style: none;
+}
+
+.sidebar .sidebar-item {
+  margin-bottom: 0.125rem;
+}
+
+/* 侧边栏标题按钮样式 */
+.sidebar .sidebar-title {
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  width: 100%;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar .sidebar-title:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary);
+}
+
+.sidebar .sidebar-title:focus {
+  outline: none;
+}
+
+/* 箭头图标样式 */
+.sidebar .sidebar-title .arrow-icon {
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+}
+
+/* 子菜单样式 */
+.sidebar .sub-menu {
+  list-style: none;
+  margin: 0.125rem 0 0.125rem 1rem;
+  padding: 0;
+}
+
+.sidebar .sub-menu li {
+  margin-bottom: 0rem;
+}
+
+.sidebar .sub-menu a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  display: block;
+  padding: 0.3rem 0.75rem 0.5rem 2rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.sidebar .sub-menu a:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary);
+  padding-left: 2.25rem;
+}
+
+.sidebar .sub-menu a.router-link-active {
+  background-color: rgba(74, 144, 226, 0.1);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    min-height: auto;
+    box-shadow: none;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+}
