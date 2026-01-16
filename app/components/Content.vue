@@ -128,7 +128,7 @@ const toolCategories = siteConfig.toolCategories
 .intro-text {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #34495e;
+  color: var(--color-text-primary);
   margin: 0;
 }
 
@@ -167,13 +167,13 @@ const toolCategories = siteConfig.toolCategories
 .tool-categories {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .tool-category {
   background-color: var(--color-bg-card);
   border-radius: 10px;
-  padding: 1.25rem;
+  padding: 0.75rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   transition: all 0.25s ease;
   border: 1px solid var(--color-border);
@@ -181,8 +181,8 @@ const toolCategories = siteConfig.toolCategories
 
 .category-title {
   font-size: 1.15rem;
-  color: var(--color-primary);
-  margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1.5px solid var(--color-border);
   font-weight: 600;
@@ -193,7 +193,7 @@ const toolCategories = siteConfig.toolCategories
 .tool-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 /* 响应式设计 */

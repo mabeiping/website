@@ -121,33 +121,33 @@ a {
   
   /* 中性色 */
   --color-white: #ffffff;
-  --color-gray-50: #F5F7FA;
-  --color-gray-100: #E6E8EB;
-  --color-gray-200: #D9DDE5;
-  --color-gray-300: #BCC1CA;
-  --color-gray-400: #8F959E;
-  --color-gray-500: #666B73;
-  --color-gray-600: #4A4E54;
-  --color-gray-700: #333333;
-  --color-gray-800: #24272C;
-  --color-gray-900: #141517;
+  --color-gray-50: #F8F9FA;
+  --color-gray-100: #E8ECF0;
+  --color-gray-200: #D0D7DE;
+  --color-gray-300: #A8B5C0;
+  --color-gray-400: #7D8799;
+  --color-gray-500: #5A6270;
+  --color-gray-600: #434A54;
+  --color-gray-700: #2D333B;
+  --color-gray-800: #1F2329;
+  --color-gray-900: #14171A;
   
   /* 文本颜色 */
-  --color-text-primary: #333333;
-  --color-text-secondary: #666666;
-  --color-text-muted: #999999;
-  --color-text-light: #CCCCCC;
+  --color-text-primary: #2D333B;
+  --color-text-secondary: #5A6270;
+  --color-text-muted: #7D8799;
+  --color-text-light: #A8B5C0;
   
   /* 背景颜色 */
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #F5F7FA;
-  --color-bg-tertiary: #E6E8EB;
-  --color-bg-card: #ffffff;
+  --color-bg-primary: #F8F9FA;
+  --color-bg-secondary: #E8ECF0;
+  --color-bg-tertiary: #D0D7DE;
+  --color-bg-card: #FFFFFF;
   
   /* 边框颜色 */
-  --color-border: #E6E8EB;
-  --color-border-light: #F5F7FA;
-  --color-border-dark: #D9DDE5;
+  --color-border: #D0D7DE;
+  --color-border-light: #E8ECF0;
+  --color-border-dark: #A8B5C0;
   
   /* 阴影 */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -164,29 +164,29 @@ a {
   --color-primary-active: #0E42D2;
   
   /* 辅助色 */
-  --color-secondary: #2C3038;
-  --color-secondary-hover: #3A3F49;
+  --color-secondary: #2D3748;
+  --color-secondary-hover: #3A4352;
   --color-accent: #4D7CFF;
   --color-accent-hover: #165DFF;
   --color-danger: #FF7875;
   --color-danger-hover: #FF4D4F;
   
   /* 文本颜色 */
-  --color-text-primary: #E6E8EB;
-  --color-text-secondary: #BCC1CA;
-  --color-text-muted: #8F959E;
-  --color-text-light: #666B73;
+  --color-text-primary: #E2E8F0;
+  --color-text-secondary: #A0AEC0;
+  --color-text-muted: #6B7280;
+  --color-text-light: #4B5563;
   
   /* 背景颜色 */
-  --color-bg-primary: #141517;
-  --color-bg-secondary: #1A1C20;
-  --color-bg-tertiary: #24272C;
-  --color-bg-card: #1A1C20;
+  --color-bg-primary: #1A202C;
+  --color-bg-secondary: #1E293B;
+  --color-bg-tertiary: #2D3748;
+  --color-bg-card: #1E293B;
   
   /* 边框颜色 */
-  --color-border: #2C3038;
-  --color-border-light: #1A1C20;
-  --color-border-dark: #3A3F49;
+  --color-border: #2D3748;
+  --color-border-light: #1E293B;
+  --color-border-dark: #3A4352;
   
   /* 阴影 */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);

@@ -69,7 +69,8 @@
   align-items: center;
   gap: 16px;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
+  padding: 10px
 }
 
 /* 工具分类下拉菜单 */
@@ -116,7 +117,7 @@
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  min-width: 280px;
+  min-width: 260px;
   max-width: 400px;
   max-height: 500px;
   overflow-y: auto;
@@ -152,16 +153,16 @@
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-text-primary);
-  padding: 8px 12px;
+  padding: 3px 12px;
   background-color: var(--color-bg-secondary);
   border-radius: 4px;
-  margin-bottom: 8px;
+   
 }
 
 .category-tools {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+   
 }
 
 .tool-link {
@@ -169,7 +170,7 @@
   padding: 8px 12px;
   color: var(--color-text-secondary);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: rem;
   border-radius: 4px;
   transition: all 0.2s ease;
 }

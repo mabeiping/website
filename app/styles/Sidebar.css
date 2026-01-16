@@ -125,16 +125,8 @@
 @media (max-width: 1200px) {
   .sidebar {
     display: none;
+   
   }
 }
 
-@media (max-width: 1024px) {
-  .sidebar {
-    position: static;
-    width: 100%;
-    min-height: auto;
-    box-shadow: none;
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-  }
-}
+ 
