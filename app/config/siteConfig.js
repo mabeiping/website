@@ -61,73 +61,73 @@ const siteConfig = {
     {
       name: 'Excel/数据处理类',
       tools: [
-        { name: '在线计算器', path: '/excel/calculator' },
-        { name: '单位转换器', path: '/excel/unit-converter' },
-        { name: 'Excel函数公式查询器', path: '/excel/function-query' },
-        { name: '批量生成编号/编码工具', path: '/excel/batch-number-generator' },
+        { name: '在线计算器', path: '/excel/calculator', id: 'calculator' },
+        { name: '单位转换器', path: '/excel/unit-converter', id: 'unit-converter' },
+        { name: 'Excel函数公式查询器', path: '/excel/function-query', id: 'calculator' },
+        { name: '批量生成编号/编码工具', path: '/excel/batch-number-generator', id: 'unit-converter' },
       ]
     },
     {
       name: '文本处理类',
       tools: [
-        { name: '文本批量处理小工具', path: '/text/text-batch-processor' },
-        { name: '字数统计工具', path: '/text/word-counter' },
-        { name: '文本对比工具', path: '/text/text-comparison' },
-        { name: '日期格式化工具', path: '/text/date-formatter' },
-        { name: '正则表达式提取工具', path: '/regex/extract' },
-        { name: '正则表达式生成工具', path: '/regex/generate' },
-        { name: '正则表达式替换工具', path: '/regex/replace' },
-        { name: '正则表达式测试工具', path: '/regex/test' }
+        { name: '文本批量处理小工具', path: '/text/text-batch-processor', id: 'text-comparison' },
+        { name: '字数统计工具', path: '/text/word-counter', id: 'word-counter' },
+        { name: '文本对比工具', path: '/text/text-comparison', id: 'text-comparison' },
+        { name: '日期格式化工具', path: '/text/date-formatter', id: 'date-calculator' },
+        { name: '正则表达式提取工具', path: '/regex/extract', id: 'regex-tester' },
+        { name: '正则表达式生成工具', path: '/regex/generate', id: 'regex-tester' },
+        { name: '正则表达式替换工具', path: '/regex/replace', id: 'regex-tester' },
+        { name: '正则表达式测试工具', path: '/regex/test', id: 'regex-tester' }
       ]
     },
     {
       name: 'PDF工具类',
-      tools: [ { name: 'PDF格式转换', path: '/pdf/format-convert' },
-        { name: 'PDF合并', path: '/pdf/merge' },
-        { name: 'PDF拆分', path: '/pdf/split' },
-        { name: 'PDF压缩', path: '/pdf/compress' },
-        { name: 'PDF旋转', path: '/pdf/rotate' },
-        { name: 'PDF加密', path: '/pdf/encrypt' },
-        { name: 'PDF编辑', path: '/pdf/editor' }
+      tools: [ { name: 'PDF格式转换', path: '/pdf/format-convert', id: 'pdf-converter' },
+        { name: 'PDF合并', path: '/pdf/merge', id: 'pdf-converter' },
+        { name: 'PDF拆分', path: '/pdf/split', id: 'pdf-converter' },
+        { name: 'PDF压缩', path: '/pdf/compress', id: 'pdf-converter' },
+        { name: 'PDF旋转', path: '/pdf/rotate', id: 'pdf-converter' },
+        { name: 'PDF加密', path: '/pdf/encrypt', id: 'pdf-converter' },
+        { name: 'PDF编辑', path: '/pdf/editor', id: 'pdf-converter' }
       ]
     },
     {
       name: '格式转换类',
       tools: [
-        { name: 'Office格式转换工具', path: '/format/office-format-converter' },
-        { name: '视频在线转换器', path: '/format/video-converter' },
-        { name: '电子书转换器', path: '/format/ebook-converter' },
-        { name: 'GIF文件处理', path: '/format/gif-processor' },
-        { name: 'PDF转换工具', path: '/format/pdf-converter' }
+        { name: 'Office格式转换工具', path: '/format/office-format-converter', id: 'pdf-converter' },
+        { name: '视频在线转换器', path: '/format/video-converter', id: 'unit-converter' },
+        { name: '电子书转换器', path: '/format/ebook-converter', id: 'pdf-converter' },
+        { name: 'GIF文件处理', path: '/format/gif-processor', id: 'icon-generator' },
+        { name: 'PDF转换工具', path: '/format/pdf-converter', id: 'pdf-converter' }
       ]
     },
     {
       name: '图片处理类',
       tools: [
-        { name: '图片无损压缩工具', path: '/image/image-compressor' },
-        { name: '证件照快速处理工具', path: '/image/id-photo-processor' },
-        { name: '图片批量处理工具', path: '/image/image-batch-processor' }
+        { name: '图片无损压缩工具', path: '/image/image-compressor', id: 'icon-generator' },
+        { name: '证件照快速处理工具', path: '/image/id-photo-processor', id: 'icon-generator' },
+        { name: '图片批量处理工具', path: '/image/image-batch-processor', id: 'icon-generator' }
       ]
     },
     {
       name: '计算/换算类',
       tools: [
-        { name: '工作日/节假日计算器', path: '/calculation/workday-calculator' },
-        { name: '汇率转换器', path: '/calculation/currency-converter' },
-        { name: '时间戳转换工具', path: '/calculation/timestamp-converter' },
-        { name: '综合单位换算工具', path: '/calculation/unit-conversions' }
+        { name: '工作日/节假日计算器', path: '/calculation/workday-calculator', id: 'date-calculator' },
+        { name: '汇率转换器', path: '/calculation/currency-converter', id: 'currency-converter' },
+        { name: '时间戳转换工具', path: '/calculation/timestamp-converter', id: 'word-counter' },
+        { name: '综合单位换算工具', path: '/calculation/unit-conversions', id: 'unit-converter' }
       ]
     },
     {
       name: '效率工具类',
       tools: [
-        { name: '二维码/条形码生成器', path: '/efficiency/qrcode-barcode-generator' },
-        { name: '密码生成与管理', path: '/efficiency/password-manager' },
-        { name: '习惯追踪器', path: '/efficiency/habit-tracker' },
-        { name: '项目甘特图简易生成器', path: '/efficiency/gantt-chart-generator' },
-        { name: '会议记录工具', path: '/efficiency/meeting-notes' },
-        { name: '密码生成器', path: '/efficiency/password-generator' },
-        { name: '番茄工作法计时器', path: '/efficiency/pomodoro-timer' }
+        { name: '二维码/条形码生成器', path: '/efficiency/qrcode-barcode-generator', id: 'qrcode-generator' },
+        { name: '密码生成与管理', path: '/efficiency/password-manager', id: 'password-generator' },
+        { name: '习惯追踪器', path: '/efficiency/habit-tracker', id: 'pomodoro-timer' },
+        { name: '项目甘特图简易生成器', path: '/efficiency/gantt-chart-generator', id: 'mind-map' },
+        { name: '会议记录工具', path: '/efficiency/meeting-notes', id: 'meeting-notes' },
+        { name: '密码生成器', path: '/efficiency/password-generator', id: 'password-generator' },
+        { name: '番茄工作法计时器', path: '/efficiency/pomodoro-timer', id: 'pomodoro-timer' }
       ]
     }
   ],

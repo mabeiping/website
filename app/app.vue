@@ -2,8 +2,9 @@
   <div class="app-container" :class="{ 'dark-theme': isDarkMode }">
     <NuxtRouteAnnouncer />
     <Navbar :is-dark-mode="isDarkMode" @toggle-theme="toggleTheme" />
+    <Sidebar />
     <main class="main-content">
-      <Sidebar />
+      <!-- <ShowContent /> -->
       <NuxtPage />
     </main>
   </div>
@@ -82,8 +83,9 @@ watch(isDarkMode, (newValue) => {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  line-height: 1.6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
   /* 优化字体渲染 */
@@ -104,93 +106,93 @@ a {
 
 /* 统一色彩体系 - CSS变量定义 */
 :root {
-  /* 主色 */
-  --color-primary: #3b82f6;
-  --color-primary-hover: #2563eb;
-  --color-primary-active: #1d4ed8;
+  /* 主色 - 极简商务风蓝色 */
+  --color-primary: #165DFF;
+  --color-primary-hover: #0E42D2;
+  --color-primary-active: #0927B0;
   
   /* 辅助色 */
-  --color-secondary: #10b981;
-  --color-secondary-hover: #059669;
-  --color-accent: #f59e0b;
-  --color-accent-hover: #d97706;
-  --color-danger: #ef4444;
-  --color-danger-hover: #dc2626;
+  --color-secondary: #F5F7FA;
+  --color-secondary-hover: #E6E8EB;
+  --color-accent: #165DFF;
+  --color-accent-hover: #0E42D2;
+  --color-danger: #FF4D4F;
+  --color-danger-hover: #CF1322;
   
   /* 中性色 */
   --color-white: #ffffff;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  --color-gray-50: #F5F7FA;
+  --color-gray-100: #E6E8EB;
+  --color-gray-200: #D9DDE5;
+  --color-gray-300: #BCC1CA;
+  --color-gray-400: #8F959E;
+  --color-gray-500: #666B73;
+  --color-gray-600: #4A4E54;
+  --color-gray-700: #333333;
+  --color-gray-800: #24272C;
+  --color-gray-900: #141517;
   
   /* 文本颜色 */
-  --color-text-primary: var(--color-gray-900);
-  --color-text-secondary: var(--color-gray-600);
-  --color-text-muted: var(--color-gray-500);
-  --color-text-light: var(--color-gray-400);
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+  --color-text-muted: #999999;
+  --color-text-light: #CCCCCC;
   
   /* 背景颜色 */
-  --color-bg-primary: var(--color-white);
-  --color-bg-secondary: var(--color-gray-50);
-  --color-bg-tertiary: var(--color-gray-100);
-  --color-bg-card: var(--color-white);
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #F5F7FA;
+  --color-bg-tertiary: #E6E8EB;
+  --color-bg-card: #ffffff;
   
   /* 边框颜色 */
-  --color-border: var(--color-gray-200);
-  --color-border-light: var(--color-gray-100);
-  --color-border-dark: var(--color-gray-300);
+  --color-border: #E6E8EB;
+  --color-border-light: #F5F7FA;
+  --color-border-dark: #D9DDE5;
   
   /* 阴影 */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 /* 暗色主题颜色 */
 .dark-theme {
   /* 主色 */
-  --color-primary: #60a5fa;
-  --color-primary-hover: #3b82f6;
-  --color-primary-active: #2563eb;
+  --color-primary: #4D7CFF;
+  --color-primary-hover: #165DFF;
+  --color-primary-active: #0E42D2;
   
   /* 辅助色 */
-  --color-secondary: #34d399;
-  --color-secondary-hover: #10b981;
-  --color-accent: #fbbf24;
-  --color-accent-hover: #f59e0b;
-  --color-danger: #f87171;
-  --color-danger-hover: #ef4444;
+  --color-secondary: #2C3038;
+  --color-secondary-hover: #3A3F49;
+  --color-accent: #4D7CFF;
+  --color-accent-hover: #165DFF;
+  --color-danger: #FF7875;
+  --color-danger-hover: #FF4D4F;
   
   /* 文本颜色 */
-  --color-text-primary: var(--color-gray-100);
-  --color-text-secondary: var(--color-gray-300);
-  --color-text-muted: var(--color-gray-400);
-  --color-text-light: var(--color-gray-500);
+  --color-text-primary: #E6E8EB;
+  --color-text-secondary: #BCC1CA;
+  --color-text-muted: #8F959E;
+  --color-text-light: #666B73;
   
   /* 背景颜色 */
-  --color-bg-primary: var(--color-gray-900);
-  --color-bg-secondary: var(--color-gray-800);
-  --color-bg-tertiary: var(--color-gray-700);
-  --color-bg-card: var(--color-gray-800);
+  --color-bg-primary: #141517;
+  --color-bg-secondary: #1A1C20;
+  --color-bg-tertiary: #24272C;
+  --color-bg-card: #1A1C20;
   
   /* 边框颜色 */
-  --color-border: var(--color-gray-700);
-  --color-border-light: var(--color-gray-800);
-  --color-border-dark: var(--color-gray-600);
+  --color-border: #2C3038;
+  --color-border-light: #1A1C20;
+  --color-border-dark: #3A3F49;
   
   /* 阴影 */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
 }
 
 /* 主题切换时的平滑过渡 - 对所有元素的颜色相关属性过渡 */
@@ -308,29 +310,31 @@ a, input, textarea, code, pre, .tool-name, .intro-text, .category-title, .about-
 /* 主内容区样式 */
 .main-content {
   display: flex;
-  width: 100%;
   margin: 0;
   padding: 0;
   position: relative;
-  margin-top: 80px; /* 避免被固定定位的导航栏遮挡 */
-  min-height: calc(100vh - 80px);
+  margin-top: 64px;
+  margin-left: 292px;
+  min-height: calc(100vh - 64px);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
+  gap: 0;
+  overflow: hidden;
+}
+
+/* 确保 NuxtPage 占据剩余空间 */
+.main-content > * {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 确保所有div元素在暗色主题下都能正确显示 */
 .dark-theme div {
   background-color: inherit;
   color: inherit;
-}
-
-/* NuxtPage 容器样式，确保不被 Sidebar 遮挡 */
-.main-content > div {
-  margin-left: 220px;
-  margin-right: 20px;
-  flex: 1;
-  width: calc(100% - 220px - 20px);
-  overflow: hidden;
 }
 
 /* 页面容器样式 - 全局 */
@@ -343,29 +347,14 @@ a, input, textarea, code, pre, .tool-name, .intro-text, .category-title, .about-
 
 /* 响应式设计 */
 @media (max-width: 1200px) {
-  /* 在中等屏幕上，移除侧边距 */
-  .main-content > div {
-    margin-right: 0;
-    margin-left: 0;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
+  .main-content {
+    margin-left: 292px;
   }
 }
 
 @media (max-width: 1024px) {
   .main-content {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  
-  /* 在小屏幕上，移除 NuxtPage 容器的 margin-left 和 margin-right */
-  .main-content > div {
     margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
   }
 }
 </style>
